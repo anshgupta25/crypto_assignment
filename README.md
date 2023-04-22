@@ -31,8 +31,7 @@ Adds new transactions between two parties for a particular property using all th
 
 ### validate_txn
 
-The unverified transacitons are added to the verified transaction list during mining of the block.Zero knoweledge proof is implemented here
-
+The unverified transacitons are added to the verified transaction list during mining of the block. Zero knoweledge proof is implemented here.
 ### show_seller
 
 List of transactions sorted by timestamp, corresponding to a particular SELLER_ID
@@ -97,7 +96,23 @@ Finally, the code tests the toret function by running it when the script is exec
 
 
 ## How to run the code:
-
+    1. run the file main.py
+    2. Open POSTMAN API and go to the add node request to add nodes which are basically miners.
+        ![](blockchain/images/add_node.png)
+        2.1. Min 3 nodes because of dpos. Here we need to input the nodes are correspoding stakes.
+    3.Now we go to the voting route in Postman to select the node with the maximum stake.
+    ![](blockchain/images/voting.png)
+    4. Then we move to the  delegates where we can see all the nodes selected in voting.
+    5. Now we add transactions where we put seller ID, buyer ID, property ID and rent.
+    ![](blockchain/images/add_txn.jpg)
+    6. Then we mine the block which is done by the miners of the selected delegates.
+    ![](blockchain/images/mine.jpg)
+    7. Now we do the user filtering in accordance to the buyer ID and seller ID.
+    ![](blockchain/images/show_seller.jpg)
+    ![](blockchain/images/show_buyer.jpg)
+    8. Show of chain.
+    ![](blockchain/images/inint.jpg)
+    ![](blockchain/images/show_full_of_chain.jpg)
 
 
 ## Team Members:
@@ -105,4 +120,4 @@ Finally, the code tests the toret function by running it when the script is exec
     2. Ishaan Srivastava 2020A7PS2071H
     3. Sahil Bhore 2020A7PS2065H
     4. Gavhane Nikhil Eknath 2020A7PS1724H
-    5. Uday Sing Thakur 2020A7PS2050H
+    5. Uday Singh Thakur 2020A7PS2050H
