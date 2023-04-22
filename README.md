@@ -92,7 +92,7 @@ The toret function generates a large prime number and finds a generator for it, 
 
 Finally, the code tests the toret function by running it when the script is executed directly. 
 
-
+![](blockchain/images/add_node.png)
 
 
 ## How to run the code:
