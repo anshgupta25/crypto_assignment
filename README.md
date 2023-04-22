@@ -92,13 +92,13 @@ The toret function generates a large prime number and finds a generator for it, 
 
 Finally, the code tests the toret function by running it when the script is executed directly. 
 
-![](blockchain/images/add_node.png)
+
 
 
 ## How to run the code:
     1. run the file main.py
     2. Open POSTMAN API and go to the add node request to add nodes which are basically miners.
-        ![](blockchain/images/add_node.png)
+![](blockchain/images/add_node.png)        
         2.1. Min 3 nodes because of dpos. Here we need to input the nodes are correspoding stakes.
     3.Now we go to the voting route in Postman to select the node with the maximum stake.
     ![](blockchain/images/voting.png)
@@ -113,6 +113,7 @@ Finally, the code tests the toret function by running it when the script is exec
     8. Show of chain.
     ![](blockchain/images/inint.png)
     ![](blockchain/images/show_full_of_chain.png)
+
 
 
 ## Team Members:
