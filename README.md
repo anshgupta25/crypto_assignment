@@ -104,15 +104,15 @@ Finally, the code tests the toret function by running it when the script is exec
     ![](blockchain/images/voting.png)
     4. Then we move to the  delegates where we can see all the nodes selected in voting.
     5. Now we add transactions where we put seller ID, buyer ID, property ID and rent.
-    ![](blockchain/images/add_txn.jpg)
+    ![](blockchain/images/add_txn.png)
     6. Then we mine the block which is done by the miners of the selected delegates.
-    ![](blockchain/images/mine.jpg)
+    ![](blockchain/images/mine.png)
     7. Now we do the user filtering in accordance to the buyer ID and seller ID.
-    ![](blockchain/images/show_seller.jpg)
-    ![](blockchain/images/show_buyer.jpg)
+    ![](blockchain/images/show_seller.png)
+    ![](blockchain/images/show_buyer.png)
     8. Show of chain.
-    ![](blockchain/images/inint.jpg)
-    ![](blockchain/images/show_full_of_chain.jpg)
+    ![](blockchain/images/inint.png)
+    ![](blockchain/images/show_full_of_chain.png)
 
 
 ## Team Members:
