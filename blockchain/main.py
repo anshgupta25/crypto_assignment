@@ -72,12 +72,12 @@ def add_nodes(): #using API calls to add nodes the to the network
 @app.route('/add/txn', methods=['POST'])
 def new_txn(): #new transactions using the given required attributes to enable property deal between parties 
     values = request.get_json()
-    required = ['seller_ID', 'buyer_ID', 'property_ID','rent']
+    required = ['buyer_ID','seller_ID', 'property_ID','rent']
 
     if not all(value in values for value in required):
-        return 'Please enter seller_ID, buyer_ID, property_ID and rent.', 400
+        return 'Please enter buyer_ID,seller_ID, property_ID and rent.', 400
     
-    idx = bchain.new_txn(values['seller_ID'], values['buyer_ID'], values['property_ID'], values['rent'])
+    idx = bchain.new_txn(values['buyer_ID'], values['seller_ID'], values['property_ID'], values['rent'])
 
     response = {
         'message': f'Transaction will be added to block {idx}'
@@ -173,10 +173,10 @@ def seller(): #prints entire history corresponding to a given Property_ID
     
     id = values[required]
     
-    txns = bchain.show_seller(id)
+    txns_seller= bchain.show_seller(id)
     response ={
         'message': 'Seller history: ',
-        'transactions_details': txns
+        'transactions_details': txns_seller
     }
     return jsonify(response),200
 
@@ -191,10 +191,10 @@ def buyer(): #prints entire history corresponding to a given Property_ID
     
     id = values[required]
     
-    txns = bchain.show_buyer(id)
+    txns_buyer = bchain.show_buyer(id)
     response ={
         'message': 'Buyer history: ',
-        'transactions_details': txns
+        'transactions_details': txns_buyer
     }
     return jsonify(response),200
 

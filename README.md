@@ -1,10 +1,10 @@
 # Housing Rental Solutions:
 In our assignment we have implemeted a housing rental solution using blockchain and cryptography. We have broadly implemented 3 major features including:
 	1. Tenant Screeing 
-	2. Payment Processing
+	2. Merkle Root Verification
 	3. Property Management
 
-We also have implemented zero knowledge proof for checking if the property is actually owned by the seller.
+We also have implemented zero knowledge proof and DPOS Consensus Algorithm for checking if the property is actually owned by the seller.
 
 ## Implementation:
 ##  bchain.py
@@ -97,20 +97,20 @@ Finally, the code tests the toret function by running it when the script is exec
 
 ## How to run the code:
     1. run the file main.py
-    2. Open POSTMAN API and go to the add node request to add nodes which are basically miners.
+    2. Open POSTMAN API and go to the add node request to add nodes which are basically miners.(http://localhost:5000/add/node)
 ![](blockchain/images/add_node.png)        
         2.1. Min 3 nodes because of dpos. Here we need to input the nodes are correspoding stakes.
-    3.Now we go to the voting route in Postman to select the node with the maximum stake.
+    3.Now we go to the voting route in Postman to select the node with the maximum stake.(http://localhost:5000/voting)
     ![](blockchain/images/voting.png)
-    4. Then we move to the  delegates where we can see all the nodes selected in voting.
-    5. Now we add transactions where we put seller ID, buyer ID, property ID and rent.
+    4. Then we move to the  delegates where we can see all the nodes selected in voting.(http://localhost:5000/show/delegates)
+    5. Now we add transactions where we put seller ID, buyer ID, property ID and rent.(http://localhost:5000/add/txn)
     ![](blockchain/images/add_txn.png)
-    6. Then we mine the block which is done by the miners of the selected delegates.
+    6. Then we mine the block which is done by the miners of the selected delegates.(http://localhost:5000/mine)
     ![](blockchain/images/mine.png)
-    7. Now we do the user filtering in accordance to the buyer ID and seller ID.
+    7. Now we do the user filtering in accordance to the buyer ID and seller ID.(http://localhost:5000/show/seller)
     ![](blockchain/images/show_seller.png)
     ![](blockchain/images/show_buyer.png)
-    8. Show of chain.
+    8. Show of chain.(http://localhost:5000/show_full_chain)
     ![](blockchain/images/inint.png)
     ![](blockchain/images/show_full_of_chain.png)
 

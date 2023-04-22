@@ -38,7 +38,8 @@ class Blockchain(object):
 
         self.unverified_hash = []  # list of unverified hashes
 
-        self.txns = []  # list of all the transactions
+        self.txns_seller = []  # list of all the transactions
+        self.txns_buyer = []
 
         self.mapping = {}
 
@@ -90,9 +91,9 @@ class Blockchain(object):
                 h = pow(g,r)%p 
                 b = randint(0,1)
                 s = (r+b*x)%(p-1)
-                jai = pow(g,s)%p
-                ansh  = (h*pow(y,b))%p
-                if(jai == ansh and sell_id == sell_id_prop):       
+                alice = pow(g,s)%p
+                bob  = (h*pow(y,b))%p
+                if(alice == bob and sell_id == sell_id_prop):       
                     self.verified_txn.append(self.unverified_txn[i])
         
     def conv(self,txn,prev):
@@ -135,14 +136,14 @@ class Blockchain(object):
     def show_seller(self, prop_ID): #list of transactions sorted by timestamp, corresponding to a particular PROPERTY_ID
         for i in range(len(self.verified_txn)):
             if self.verified_txn[i]['Seller ID'] == prop_ID:
-                self.txns.append(self.verified_txn[i])
-        return self.txns
+                self.txns_seller.append(self.verified_txn[i])
+        return self.txns_seller
     
-    def show_buyer(self, prop_ID): #list of transactions sorted by timestamp, corresponding to a particular PROPERTY_ID
+    def show_buyer(self, prop_ID1): #list of transactions sorted by timestamp, corresponding to a particular PROPERTY_ID
         for i in range(len(self.verified_txn)):
-            if self.verified_txn[i]['Buyer ID'] == prop_ID:
-                self.txns.append(self.verified_txn[i])
-        return self.txns
+            if self.verified_txn[i]['Buyer ID'] == prop_ID1:
+                self.txns_buyer.append(self.verified_txn[i])
+        return self.txns_buyer
 
     def last_block(self): # most recently added block
         return self.chain[-1]
