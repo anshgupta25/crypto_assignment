@@ -42,6 +42,7 @@ class Blockchain(object):
         self.txns_buyer = []
 
         self.mapping = {}
+        self.buyer_map = {}
 
         self.add_block(
             previous_hash="0x4cd1e910c3d74780000000000000000000000000000000000000000000000000")
@@ -58,7 +59,7 @@ class Blockchain(object):
             x = y['hash']
         block_info = {'index': len(self.chain) + 1,  # represnts index of block (position with 1 indexing) in linear blockchain
                  'timestamp': now.strftime("%d/%m/%Y %H:%M:%S"),
-                 'transactions': self.unverified_txn,
+                 'transactions': self.verified_txn,
                  'merkle_root': txn_hash_adding,  # list of transactions corresponding to the block
                  'hash': hashh,
                  'previous_hash': x,
@@ -81,19 +82,25 @@ class Blockchain(object):
             for i in range(len(self.unverified_txn)):
                 prop_id = self.unverified_txn[i]['Property ID']
                 sell_id_prop= self.unverified_txn[i]['Seller ID']
+                print(sell_id_prop)
+                buy_id_prop = self.unverified_txn[i]['Buyer ID']
+                print(buy_id_prop)
                 sell_id = self.mapping[prop_id]
-                
-                p = generate_large_prime(20)
-                g  = find_generator(p)
-                x = prop_id
-                y = pow(g,x)%p
-                r = randint(0,p-2)
-                h = pow(g,r)%p 
-                b = randint(0,1)
-                s = (r+b*x)%(p-1)
+                print(sell_id)
+                buy_id = self.buyer_map[prop_id]
+                print(buy_id)
+                for j in range(5):
+                    p = generate_large_prime(20)
+                    g  = find_generator(p)
+                    x = prop_id
+                    y = pow(g,x)%p
+                    r = randint(0,p-2)
+                    h = pow(g,r)%p 
+                    b = randint(0,1)
+                    s = (r+b*x)%(p-1)
                 alice = pow(g,s)%p
                 bob  = (h*pow(y,b))%p
-                if(alice == bob and sell_id == sell_id_prop):       
+                if(alice == bob and sell_id == sell_id_prop and buy_id == buy_id_prop ):       
                     self.verified_txn.append(self.unverified_txn[i])
         
     def conv(self,txn,prev):
@@ -110,6 +117,8 @@ class Blockchain(object):
         y = randint(2000,3000)
         self.mapping[property_ID] = seller_ID
         print(self.mapping)
+        self.buyer_map[property_ID] = buyer_ID
+        print(self.buyer_map)
         txn_info={
             'Transaction ID': x^y ,
             'Buyer ID': buyer_ID,
